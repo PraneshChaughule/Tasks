@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Data from './Data';
 
-function About() {
+export default function About() {
+    const[conditon, setCondition] = useState(false);
+    const[classes, setClasses] = useState(["btn btn-success"]);
+    const[name, setName] = useState("Show");
+    const handleData=()=>{
+        if(conditon === true){
+            setClasses("btn btn-success");
+            setName("Show")
+            setCondition(false);
+        }else{
+            setClasses("btn btn-danger");
+            setName("Hide")
+            setCondition(true);
+        }
+    }
     return (
         <div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>Click The Button</p>
+            <button className={classes} style={{marginLeft:'5%'}} onClick={handleData}>{name}</button>
+            {conditon ? <Data/> : ""}
         </div>
     )
 }
 
-export default About
