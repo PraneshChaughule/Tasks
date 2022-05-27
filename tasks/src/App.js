@@ -1,11 +1,12 @@
 import './App.css';
 import Navbars from './components/Navbars';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Notecontext from './context/Notecontext';
 import Employee from './components/Employee';
+import Todos from './components/Todos';
 
 
 function App() {
@@ -20,11 +21,12 @@ function App() {
        <Notecontext.Provider value={todos}>
         <Router>
           <Navbars />
-          <Routes>
-            <Route exact path="/" element={<Home />}/>
-            <Route exact path="/employee" element={<Employee />}/>
-            <Route exact path="/about" element={<About />}/>
-          </Routes>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/employee" component={Employee}/>
+            <Route exact path="/todos" component={Todos}/>
+            <Route exact path="/about" component={About}/>
+          </Switch>
         </Router>
         </Notecontext.Provider>
     </>

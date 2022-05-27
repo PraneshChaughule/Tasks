@@ -42,3 +42,28 @@
   outline: none;
   padding: 5px 10px;
 }
+
+/*Pagination css*/
+.paginationBtns{
+  width: 30%;
+  /* height: 30px; */
+  list-style:none;
+  display: flex;
+  justify-content: end;
+}
+
+.paginationBtns a{
+  padding: 10px;
+  border:1px solid rgb(94, 94, 97);
+  color: rgb(145, 145, 167);
+  cursor: pointer;
+}
+.paginationBtns a:hover{
+  color: white;
+  background-color: rgb(145, 145, 167);;
+}
+
+.paginationActive a{
+  color: white;
+  background-color: rgb(145, 145, 167);;
+}
